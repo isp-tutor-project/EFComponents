@@ -1,0 +1,14 @@
+{
+	"CATEGORY_EF_COMPONENTS": "EdForge Components",
+	"DISP_NAME_ENGINE": "TutorEngine",
+	"DISP_NAME_MODULE": "TutorModule",
+	"PROP_VISIBLE": "visible",
+	"PROP_COMP_ID": "compositionID",
+	"PROP_ROOT_TUTOR": "tutorID",
+	"PROP_CLASS": "class"
+}
+
+
+
+
+
