@@ -20,13 +20,13 @@ NOTICE: Adobe permits you to use, modify, and distribute this file as stand-alon
  
 var _widgetID = 0;
 
-EFLoadManager = function() {};
+var EFLoadManager = EFLoadManager || function(){};
 $ = EFLoadManager;
 
-(function ($) {
+(function (_EFLoadManager) {
     "use strict";
     
-    $.buildWidget = function( name, prototype ) {
+    _EFLoadManager.buildWidget = function( name, prototype ) {
 
         var existingConstructor, constructor, basePrototype;
 			
@@ -34,10 +34,10 @@ $ = EFLoadManager;
         name = name.split( "." )[ 1 ];
         var fullName = namespace + "-" + name;
 
-        $[ namespace ] = $[ namespace ] || {};
-		existingConstructor = $[ namespace ][ name ];
+        _EFLoadManager[ namespace ] = _EFLoadManager[ namespace ] || {};
+		existingConstructor = _EFLoadManager[ namespace ][ name ];
 		
-        constructor = $[ namespace ][ name ] = function( options, element ) {
+        constructor = _EFLoadManager[ namespace ][ name ] = function( options, element ) {
             if ( arguments.length ) {
                 this._createWidget( options, element );
             }
@@ -48,16 +48,5 @@ $ = EFLoadManager;
 		return constructor;
 		
     } //$.buildWidget	
-
 	
-	// Link the library classes to the Tutor Engine inheritance chain.
-	//
-	$.eflinkLib = function() {
-
-		
-
-
-	};
-	
-
-})(EFLoadManager || {});
+})(EFLoadManager);

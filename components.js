@@ -12,7 +12,7 @@
 			],
 			"properties": [
 				{"name": "PROP_COMP_ID", "variable": "compositionID", "type": "String", "default": "copy id from init() in Published HTML"},
-				{"name": "PROP_ROOT_TUTOR", "variable": "tutorID", "type": "String", "default": "Enter name of root Tutor"}
+				{"name": "PROP_ROOT_TUTOR", "variable": "boottutorID", "type": "String", "default": "Name of Boot Tutor-Module"}
 			]
 		},
 		{

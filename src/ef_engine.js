@@ -1,5 +1,5 @@
 
-(function($) {    
+(function(_EFLoadManager) {    
 
 	// Register a component with the className: my.Image,
 	// and prototype with the following overrides 
@@ -7,7 +7,7 @@
 	// getCreateString
 	// getProperties
 	// getAttributes  test
-    $.buildWidget("ef.TutorEngine", {
+    _EFLoadManager.buildWidget("ef.TutorEngine", {
         options: {
 			'visible': false,
 			'position': 'absolute'
@@ -19,18 +19,60 @@
 
 			var comp=AdobeAn.getComposition(options.compositionID);
 
-			// Inject a static property pointing to the Animate library.
-			//
-			$.efLibrary = comp.getLibrary();
-			$.rootTutor = options.tutorID;
-			$.options   = options;
-			$.loaded     = true;
+			if(_EFLoadManager.loaded) {
+				console.log("EdForge ERROR: Only one Tutor-Engine may be loaded at a time.");
+			}
+			else {
+
+				// Keep the AnimateCC preloader on-screen 
+				//
+				let preloaderDiv;
+		
+				if(preloaderDiv = document.getElementById("_preload_div_")) 
+									preloaderDiv.style.display = 'inline-block';
+						
+				// Inject a static property pointing to the Animate library.
+				//
+				_EFLoadManager.efLoaderLib = comp.getLibrary();
+				_EFLoadManager.rootTutor   = options.boottutorID;
+				_EFLoadManager.options     = options;
+				_EFLoadManager.modules     = new Array();
+
+				// Extract the module name and assign it as a named property of EFLoadManager.modules
+				// which is used for dynamic component creation
+				//
+				for(let compName in _EFLoadManager.efLoaderLib) {
+					if(compName.toUpperCase().startsWith("EFTUTOR" )) {
+
+						_EFLoadManager.tutorName = compName.toUpperCase();
+						_EFLoadManager.modules[compName.toUpperCase()] = _EFLoadManager.efLoaderLib;
+						break;
+					}
+				}
+
+				_EFLoadManager.loaded    = true;
+			}
 		},		
 		
 		// Add functions required by AnimateCC
 		//
 		create: function(){},
-		attach: function(){},
+
+		// The attach method is called by the EFTutorLoader(i.e exportRoot) tween to add STutorEngine to
+		// the timeline.  this.timeline.addTween(cjs.Tween.get(this.STutorEngine).wait(1));
+		// See: EFTutorLoader.js "stage content" section
+		//
+		attach: function(){
+
+			_EFLoadManager.efStage   = stage;
+			_EFLoadManager.efRoot    = exportRoot;				
+
+			System.import('TutorEngineOne').then(function(TutorEngineOne){
+					EFTutorEngine = new TutorEngineOne.CEngine;  
+					EFTutorEngine.start(_EFLoadManager.rootTutor);
+				});					
+		},
+		
 		setProperty: function(k, v) {},
 		update: function(force) {}
 

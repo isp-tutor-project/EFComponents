@@ -3,8 +3,8 @@
 	"DISP_NAME_ENGINE": "TutorEngine",
 	"DISP_NAME_MODULE": "TutorModule",
 	"PROP_VISIBLE": "visible",
-	"PROP_COMP_ID": "compositionID",
-	"PROP_ROOT_TUTOR": "tutorID",
+	"PROP_COMP_ID": "Composition ID -",
+	"PROP_ROOT_TUTOR": "Boot Tutor-Module Name -",
 	"PROP_CLASS": "class"
 }
 
