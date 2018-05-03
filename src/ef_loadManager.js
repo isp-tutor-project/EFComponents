@@ -21,6 +21,9 @@ NOTICE: Adobe permits you to use, modify, and distribute this file as stand-alon
 var _widgetID = 0;
 
 var EFLoadManager = EFLoadManager || function(){};
+
+EFLoadManager.global = window;
+
 $ = EFLoadManager;
 
 (function (_EFLoadManager) {

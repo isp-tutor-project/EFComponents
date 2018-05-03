@@ -35,6 +35,7 @@
 				//
 				_EFLoadManager.efLoaderLib = comp.getLibrary();
 				_EFLoadManager.rootTutor   = options.boottutorID;
+				_EFLoadManager.classLib    = {};
 				_EFLoadManager.options     = options;
 				_EFLoadManager.modules     = new Array();
 
