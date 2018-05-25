@@ -51,10 +51,18 @@
 					}
 				}
 
+				// Replace the CreateJS buttonHelper - Animate automatically instantiates these for each
+				// button but EF does not use this functionality.
+				// 
+				createjs.ButtonHelper = this.buttonHelperNull;
+
 				_EFLoadManager.loaded    = true;
 			}
 		},		
 		
+		buttonHelperNull: function(){},
+
+
 		// Add functions required by AnimateCC
 		//
 		create: function(){},
