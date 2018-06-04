@@ -22,7 +22,7 @@ var _widgetID = 0;
 
 var EFLoadManager = EFLoadManager || function(){};
 
-EFLoadManager.global = window;
+EFLoadManager.window = window;
 
 $ = EFLoadManager;
 
