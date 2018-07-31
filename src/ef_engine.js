@@ -77,8 +77,10 @@
 			_EFLoadManager.efRoot    = exportRoot;				
 
 			System.import('TutorEngineOne').then(function(TutorEngineOne){
-					EFTutorEngine = new TutorEngineOne.CEngine;  
-					EFTutorEngine.start(EFRootTutor || _EFLoadManager.rootTutor);
+                    EFTutorEngine = new TutorEngineOne.CEngine;  
+                    
+                    var EFRootTutor  = window.EFRootTutor || _EFLoadManager.rootTutor
+					EFTutorEngine.start(EFRootTutor);
 				});					
 		},
 		
