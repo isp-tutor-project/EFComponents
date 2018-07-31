@@ -78,7 +78,7 @@
 
 			System.import('TutorEngineOne').then(function(TutorEngineOne){
 					EFTutorEngine = new TutorEngineOne.CEngine;  
-					EFTutorEngine.start(_EFLoadManager.rootTutor);
+					EFTutorEngine.start(EFRootTutor || _EFLoadManager.rootTutor);
 				});					
 		},
 		
