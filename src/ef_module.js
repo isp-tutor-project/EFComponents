@@ -17,14 +17,14 @@
 
 		_createWidget: function( options, element ) {
 
-			var comp=AdobeAn.getComposition(options.compositionID);
+			// var comp=AdobeAn.getComposition(options.compositionID);
 
 			// Inject a static property pointing to the Animate library.
 			//
-			_EFLoadManager.efLoaderLib = comp.getLibrary();
-			_EFLoadManager.rootTutor = options.moduleID;
-			_EFLoadManager.options   = options;
-			_EFLoadManager.loaded     = true;
+			// _EFLoadManager.efLoaderLib = comp.getLibrary();
+			// _EFLoadManager.rootTutor = options.moduleID;
+			// _EFLoadManager.options   = options;
+			// _EFLoadManager.loaded     = true;
 		},		
 		
 		// Add functions required by AnimateCC
