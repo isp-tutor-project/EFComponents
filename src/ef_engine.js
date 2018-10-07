@@ -37,8 +37,8 @@
 				_EFLoadManager.rootTutor   = options.boottutorID;
 				_EFLoadManager.classLib    = {};
 				_EFLoadManager.options     = options;
-				_EFLoadManager.modules     = new Array();
-
+                _EFLoadManager.modules     = new Array();
+                
 				// Extract the module name and assign it as a named property of EFLoadManager.modules
 				// which is used for dynamic component creation
 				//
